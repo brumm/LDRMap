@@ -1,9 +1,9 @@
 
-<h1>Test!</h1>
+<h1>Couples</h1>
 
 <ul>
 	<% @couples.each do |couple| %>
 		<li><%=h couple.name_1 %> & <%=h couple.name_2 %><br />
-		<%=h couple.address_1 %> & <%=h couple.address_2 %></li>
+		<%=h couple.address_1 %> ------ <%=h couple.address_2 %></li>
 	<% end %>
 </ul>

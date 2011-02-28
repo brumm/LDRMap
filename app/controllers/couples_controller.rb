@@ -15,7 +15,15 @@ class CouplesController < ApplicationController
 	    format.html
 	    format.json { render :json => @couples }
 	  end
-	  
+  end
+
+  def show
+    @couple = Couple.find(params[:id])
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @couple }
+    end
   end
 
   def create
@@ -29,6 +37,4 @@ class CouplesController < ApplicationController
       end
     end
   end
-
-
 end

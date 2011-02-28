@@ -1,12 +1,16 @@
 
 $(document).ready(function() {
-	
+
 	$("#form h1").toggle(
 	  function () {
-		$('#form').css({"height" : "auto", "width" : "auto"});
+		// $('#form').css({"height" : "auto", "width" : "auto"});
+		$('#form ul').fadeIn(900);
+		$('#form').animate({"height" : "180px", "width" : "400px"}, 300);
 	  },
 	  function () {
-		$('#form').css({"height" : "18px", "width" : "120px"});
+		// $('#form').css({"height" : "11px", "width" : "114px"});
+		$('#form ul').hide();
+		$('#form').animate({"height" : "11px", "width" : "114px"}, 200);
 	  }
 	);
 	
@@ -25,7 +29,10 @@ function initialize2(relationships) {
 		center: ltlng,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
+	
 	var map = new google.maps.Map(document.getElementById("map_canvas"),	myOptions);
+	var bounds = new google.maps.LatLngBounds();
+	
 	
 	for (var i=0; i < relationships.length; i++) {
 		var relationshipCoordinates = [
@@ -56,8 +63,11 @@ function initialize2(relationships) {
 			marker.setMap(map);
 			marker2.setMap(map);
 			relationshipPath.setMap(map);
+			
+			bounds.extend(relationshipCoordinates[0]);
+			bounds.extend(relationshipCoordinates[1]);
 	};
-	
+	map.fitBounds(bounds);
 }
 
 // function getCoordinates(address, map) {

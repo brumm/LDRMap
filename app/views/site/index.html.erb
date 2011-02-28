@@ -4,9 +4,9 @@
 	<ul>
 		<%= form_for(@couple) do |f| %>
 			<li><%= f.label :name_1, "Your Name" %>  <%= f.text_field :name_1 %></li>
-			<li><%= f.label :address_1, "Your Address" %>  <%= f.text_field :address_1 %></li>
+			<li><%= f.label :address_1, "Your Location" %>  <%= f.text_field :address_1 %></li>
 			<li><%= f.label :name_2, "Your SO's Name" %>  <%= f.text_field :name_2 %></li>
-			<li><%= f.label :address_2, "Your SO's Address" %>  <%= f.text_field :address_2 %></li>
+			<li><%= f.label :address_2, "Your SO's Location" %>  <%= f.text_field :address_2 %></li>
 			<%= f.submit 'Add' %>
 		<% end %>	</ul>
 </div>

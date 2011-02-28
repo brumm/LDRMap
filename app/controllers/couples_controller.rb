@@ -28,6 +28,11 @@ class CouplesController < ApplicationController
 
   def create
     @couple = Couple.new(params[:couple])
+		
+		#ugliest hackery
+		res = Geocoder::Lookup.coordinates(params[:couple]["address_2"])
+		@couple.lat_2 = res[0]
+		@couple.long_2 = res[1]
 
     respond_to do |format|
       if @couple.save

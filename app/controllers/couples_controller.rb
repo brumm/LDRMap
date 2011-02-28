@@ -42,4 +42,22 @@ class CouplesController < ApplicationController
       end
     end
   end
+
+  def edit
+    @couple = Couple.find(params[:id])
+  end
+
+  def update
+    @couple = Couple.find(params[:id])
+
+    respond_to do |format|
+      if @couple.update_attributes(params[:couple])
+        format.html { redirect_to(:root) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+      end
+    end
+  end
+
 end

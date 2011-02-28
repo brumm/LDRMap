@@ -1,0 +1,15 @@
+
+<ul>
+	<% form_for(@couple) do |f| %>
+		<li>
+			<%= @couple.name_1 %><br />
+			<%= f.text_field :lat_1 %><br />
+			<%= f.text_field :long_1 %><br />
+			<br />
+			<%= @couple.name_2 %><br />
+			<%= f.text_field :lat_2 %><br />
+			<%= f.text_field :long_2 %><br />
+		</li>
+		<%= f.submit 'Save' %>
+	<% end %>
+</ul>

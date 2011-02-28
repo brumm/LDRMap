@@ -3,7 +3,11 @@
 
 <ul>
 	<% @couples.each do |couple| %>
-		<li><%=h couple.name_1 %> & <%=h couple.name_2 %><br />
-		<%=h couple.address_1 %> ------ <%=h couple.address_2 %></li>
+		<li>
+			<%=h couple.name_1 %> & <%=h couple.name_2 %><br />
+			<%=h couple.address_1 %>: <%=h couple.lat_1 %>, <%=h couple.long_1 %><br /> 
+			<%=h couple.address_2 %>: <%=h couple.lat_2 %>, <%=h couple.long_2 %><br />
+			<%= link_to 'Edit', edit_couple_path(couple) %>
+		</li>
 	<% end %>
 </ul>

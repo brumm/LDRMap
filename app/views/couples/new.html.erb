@@ -1,0 +1,14 @@
+
+<%= form_for(@couple) do |f| %>
+	<b><%= f.label :name_1 %></b>  <%= f.text_field :name_1 %><br />
+	<b><%= f.label :address_1 %></b>  <%= f.text_field :address_1 %><br />
+	<b><%= f.label :lat_1 %></b>  <%= f.text_field :lat_1 %><br />
+	<b><%= f.label :long_1 %></b>  <%= f.text_field :long_1 %><br />
+	<br />
+	<b><%= f.label :name_2 %></b>  <%= f.text_field :name_2 %><br />
+	<b><%= f.label :address_2 %></b>  <%= f.text_field :address_2 %><br />
+	<b><%= f.label :lat_2 %></b>  <%= f.text_field :lat_2 %><br />
+	<b><%= f.label :long_2 %></b>  <%= f.text_field :long_2 %><br />
+	<br /><br />
+	<%= f.submit 'Save' %>
+<% end %>

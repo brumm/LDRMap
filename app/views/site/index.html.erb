@@ -1,0 +1,13 @@
+
+<div id="form">
+	<h1>Add your LDR!</h1>
+	<ul>
+		<%= form_for(@couple) do |f| %>
+			<li><%= f.label "Your Name" %>  <%= f.text_field :name_1 %></li>
+			<li><%= f.label "Your Address" %>  <%= f.text_field :address_1 %></li>
+			<li><%= f.label "Your SO's Name" %>  <%= f.text_field :name_2 %></li>
+			<li><%= f.label "Your SO's Address" %>  <%= f.text_field :address_2 %></li>
+			<%= f.submit 'Add' %>
+		<% end %>	</ul>
+</div>
+<div id="map_canvas"></div>

@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>LDRMap</title>
+	<%= csrf_meta_tag %>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<%= javascript_include_tag "jquery-1.5.min", :cache => true %>
+	<%= javascript_include_tag "gmaps", :cache => true %>
+	<%= stylesheet_link_tag "style", :cache => true %>
+</head>
+<body>
+	<%= yield %>
+</body>
+</html>

@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name_1: MyString
+  address_1: MyString
+  lat_1: 9.99
+  long_1: 9.99
+  name_2: MyString
+  address_2: MyString
+  lat_2: 9.99
+  long_2: 9.99
+  distance: 9.99
+
+two:
+  name_1: MyString
+  address_1: MyString
+  lat_1: 9.99
+  long_1: 9.99
+  name_2: MyString
+  address_2: MyString
+  lat_2: 9.99
+  long_2: 9.99
+  distance: 9.99

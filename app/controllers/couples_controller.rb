@@ -60,4 +60,13 @@ class CouplesController < ApplicationController
     end
   end
 
+  def destroy
+    @couple = Couple.find(params[:id])
+    @couple.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(:root) }
+      format.xml  { head :ok }
+    end
+  end
 end

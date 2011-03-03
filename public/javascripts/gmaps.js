@@ -32,21 +32,32 @@ function initialize2(relationships) {
 	
 	var map = new google.maps.Map(document.getElementById("map_canvas"),	myOptions);
 	var bounds = new google.maps.LatLngBounds();
+	var randomRelationship = relationships[rand(0, relationships.length-1)];
+	var location_1 = new google.maps.LatLng(randomRelationship.couple.lat_1, randomRelationship.couple.long_1);
+	var location_2 = new google.maps.LatLng(randomRelationship.couple.lat_2, randomRelationship.couple.long_2);
 	
+	bounds.extend(location_1);
+	bounds.extend(location_2);
 	
 	for (var i=0; i < relationships.length; i++) {
 		var relationshipCoordinates = [
 		    new google.maps.LatLng(relationships[i].couple.lat_1, relationships[i].couple.long_1),
 		    new google.maps.LatLng(relationships[i].couple.lat_2, relationships[i].couple.long_2)
 		  ];
+				
+		// var color = '#'+('00000'+(Math.random()*16777216<<0).toString(16)).substr(-6);
+		var color = "#A01B33";
 		
 		  var relationshipPath = new google.maps.Polyline({
 		    path: relationshipCoordinates,
 			 geodesic: true,
-			 strokeColor: "#9C1A31",
-		    strokeOpacity: 0.8,
-		    strokeWeight: 4
+			 strokeColor: color,
+		    strokeOpacity: 0.4,
+		    strokeWeight: 3
 		  });
+		
+		highlightPoly(relationshipPath);
+		relationshipPath.normalStyle = color;
 		
 		  var marker = new google.maps.Marker({
 		      position: relationshipCoordinates[0], 
@@ -63,22 +74,23 @@ function initialize2(relationships) {
 			marker.setMap(map);
 			marker2.setMap(map);
 			relationshipPath.setMap(map);
-			
-			bounds.extend(relationshipCoordinates[0]);
-			bounds.extend(relationshipCoordinates[1]);
 	};
 	map.fitBounds(bounds);
 }
 
-// function getCoordinates(address, map) {
-// 	geocoder = new google.maps.Geocoder();
-// 	geocoder.geocode( { 'address': address}, function(results, status) {		
-// 	if (status == google.maps.GeocoderStatus.OK) {
-// 		var marker = new google.maps.Marker({
-//           map: map, 
-//           position: results[0].geometry.location
-//       });
-//       marker.setMap(map);
-// 	}
-// 	});
-// }
+function highlightPoly(poly) {
+    google.maps.event.addListener(poly,"mouseover",function() {
+      poly.setOptions({strokeOpacity: 1});
+    });
+    google.maps.event.addListener(poly,"mouseout",function() {
+      poly.setOptions({strokeOpacity: 0.4});
+    });
+}
+
+
+function rand(min, max) {
+  var offset = min;
+  var range = (max - min) + 1;
+  var randomNumber = Math.floor( Math.random() * range) + offset;
+  return randomNumber;
+}

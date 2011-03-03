@@ -11,4 +11,13 @@
 		<% end %>	
 	</ul>
 </div>
+<div id="list">
+	<ol>
+		<% @couples.each do |couple| %>
+			<li>
+				<%=h couple.name_1 %> & <%=h couple.name_2 %> (<%=h couple.distance %> miles)<br />
+			</li>
+		<% end %>
+	</ol>
+</div>
 <div id="map_canvas"></div>

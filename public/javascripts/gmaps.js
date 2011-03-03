@@ -44,20 +44,16 @@ function initialize2(relationships) {
 		    new google.maps.LatLng(relationships[i].couple.lat_1, relationships[i].couple.long_1),
 		    new google.maps.LatLng(relationships[i].couple.lat_2, relationships[i].couple.long_2)
 		  ];
-				
-		// var color = '#'+('00000'+(Math.random()*16777216<<0).toString(16)).substr(-6);
-		var color = "#A01B33";
-		
+
 		  var relationshipPath = new google.maps.Polyline({
 		    path: relationshipCoordinates,
 			 geodesic: true,
-			 strokeColor: color,
-		    strokeOpacity: 0.4,
-		    strokeWeight: 3
+			 strokeColor: "#607082",
+		    strokeOpacity: 0.5,
+		    strokeWeight: 4
 		  });
 		
 		highlightPoly(relationshipPath);
-		relationshipPath.normalStyle = color;
 		
 		  var marker = new google.maps.Marker({
 		      position: relationshipCoordinates[0], 
@@ -80,10 +76,10 @@ function initialize2(relationships) {
 
 function highlightPoly(poly) {
     google.maps.event.addListener(poly,"mouseover",function() {
-      poly.setOptions({strokeOpacity: 1});
+      poly.setOptions({"strokeColor" : "#9F1B32", "strokeOpacity" : "1"});
     });
     google.maps.event.addListener(poly,"mouseout",function() {
-      poly.setOptions({strokeOpacity: 0.4});
+      poly.setOptions({"strokeColor" : "#607082", "strokeOpacity" : "0.5"});
     });
 }
 

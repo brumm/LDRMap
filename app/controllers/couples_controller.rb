@@ -30,9 +30,15 @@ class CouplesController < ApplicationController
     @couple = Couple.new(params[:couple])
 		
 		#ugliest hackery
-		res = Geocoder::Lookup.coordinates(params[:couple]["address_2"])
-		@couple.lat_2 = res[0]
-		@couple.long_2 = res[1]
+		res1 = Geocoder::Lookup.coordinates(params[:couple]["address_1"])
+		res2 = Geocoder::Lookup.coordinates(params[:couple]["address_2"])
+		
+		@couple.lat_1 = res1[0]
+		@couple.long_1 = res1[1]
+		
+		@couple.lat_2 = res2[0]
+		@couple.long_2 = res2[1]
+		@couple.distance = Geocoder::Calculations.distance_between( @couple.lat_1, @couple.long_1,  @couple.lat_2, @couple.long_2).round(2)
 
     respond_to do |format|
       if @couple.save

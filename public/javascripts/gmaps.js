@@ -43,8 +43,12 @@ function initialize2(relationships) {
 	var location_1 = new google.maps.LatLng(randomRelationship.couple.lat_1, randomRelationship.couple.long_1);
 	var location_2 = new google.maps.LatLng(randomRelationship.couple.lat_2, randomRelationship.couple.long_2);
 	
+	var infowindow = new google.maps.InfoWindow();
+	
 	bounds.extend(location_1);
 	bounds.extend(location_2);
+	
+	list = $('#list ol');
 	
 	for (var i=0; i < relationships.length; i++) {
 		var relationshipCoordinates = [
@@ -60,50 +64,48 @@ function initialize2(relationships) {
 			strokeWeight: 4
 		});
 				
-		var marker = new google.maps.Marker({
-				visible: false,
-				position: relationshipCoordinates[0], 
-				title: relationships[i].couple.name_1,
-				icon: image
-			});
-		
-			var marker2 = new google.maps.Marker({
-				visible: false,
-				position: relationshipCoordinates[1], 
-				title: relationships[i].couple.name_2,
-				icon: image
-			});
+		content = relationships[i].couple.name_1 + " & " + relationships[i].couple.name_2 + "<br />" + relationships[i].couple.distance + " miles";
 			
-			marker.setMap(map);
-			marker2.setMap(map);
-			
-			highlightPoly(relationshipPath, marker, marker2);
-			pantoPoly(relationshipPath, map, relationshipCoordinates[0], relationshipCoordinates[1])
+			highlightPoly(relationshipPath);
+			pantoPoly(relationshipPath, map, relationshipCoordinates[0], relationshipCoordinates[1], infowindow, content)
 			relationshipPath.setMap(map);
 	};
 	map.fitBounds(bounds);
+	
+	google.maps.event.addListener(map, 'click', function() {
+        infowindow.close();
+   });
 }
 
-function	pantoPoly(poly, map, ltlng1, ltlng2) {
+function	pantoPoly(poly, map, ltlng1, ltlng2, infowindow, content) {
 	var bounds = new google.maps.LatLngBounds();
 	bounds.extend(ltlng1);
 	bounds.extend(ltlng2);
 
 	google.maps.event.addListener(poly, "click", function() {
+		
+		infowindow.setOptions({
+			content: content,
+			position: bounds.getCenter()
+		});
+		
+		infowindow.open(map);
+		
 		map.fitBounds(bounds);
 		poly.setOptions({"strokeColor" : "#9F1B32", "strokeOpacity" : "1"});
    });
 }
 
-function highlightPoly(poly, marker, marker2) {
+// function highlightPoly(poly, marker, marker2) {
+function highlightPoly(poly) {
     google.maps.event.addListener(poly, "mouseover", function() {
-		marker.setVisible(true);
-		marker2.setVisible(true);
+		// marker.setVisible(true);
+		// marker2.setVisible(true);
       poly.setOptions({"strokeColor" : "#9F1B32", "strokeOpacity" : "1"});
     });
     google.maps.event.addListener(poly,"mouseout",function() {
-		marker.setVisible(false);
-		marker2.setVisible(false);
+		// marker.setVisible(false);
+		// marker2.setVisible(false);
       poly.setOptions({"strokeColor" : "#607082", "strokeOpacity" : "0.5"});
     });
 }

@@ -9,8 +9,8 @@ class CouplesController < ApplicationController
   end
 
   def index
-		@couples = Couple.all
-		
+		@couples = Couple.find(:all, :order => "distance DESC")
+				
 		respond_to do |format|
 	    format.html
 	    format.json { render :json => @couples }

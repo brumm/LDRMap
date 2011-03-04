@@ -14,13 +14,15 @@
 	}
 	
 	#list {
-		max-height: 100px;
+		max-height: 150px;
 		overflow: auto;
      	overflow-x: hidden;
-		bottom: -130px;
+		bottom: -140px;
 		right: 10px;
-		padding: 10px 30px;
+		min-width: 400px;
 		position: fixed;
+		padding: 10px;
+		background: rgba(194, 203, 211, 0.85);
 		background: -moz-linear-gradient(top, rgba(186, 198, 213, 0.8), rgba(139, 163, 190, 0.8));
 		z-index: 999;
 		-moz-border-radius: 3px;
@@ -33,14 +35,29 @@
 	#list ol {
 		margin: 0;
 		padding: 0;
+		padding-left: 25px;
 		font: 14px "Helvetica", "Trebuchet MS", Verdana, sans-serif;
 		color: #262B35;
 		text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
-		letter-spacing: 1px;	
 	}
 	
 	#list ol li:not(:last-child) {
 		margin-bottom: 5px;
+	}
+	
+	#list ol li span.distance {
+		float: right;
+	}
+	
+	.clickable {
+		cursor: pointer;
+		padding: 4px 5px 3px 5px;
+	}
+	
+	.clickable:hover {
+		-moz-border-radius: 3px;
+		-webkit-border-radius: 3px;
+		background: rgba(255, 255, 255, 0.3);
 	}
 	
 	#form {
@@ -63,7 +80,7 @@
 		background: -moz-linear-gradient(top, rgba(186, 198, 213, 0.8), rgba(139, 163, 190, 0.8));
 	}
 	
-	#form, #form h1 {
+	#form, #form h1, #list h2 {
 		font: 14px "Helvetica", "Trebuchet MS", Verdana, sans-serif;
 		font-weight: bold;
 		color: #262B35;
@@ -76,7 +93,7 @@
 		font: 12px "Helvetica", "Trebuchet MS", Verdana, sans-serif;		
 	}
 
-	#form h1 {
+	#form h1, #list h2 {
 		cursor: pointer;
 		margin: 0;
 		padding-bottom: 15px;
@@ -101,9 +118,9 @@
 		top:  8px;
 		width: 16px;
 		height: 16px;
-		background-color: rgba(0, 0, 0, 0.4);
+		background-color: rgba(38, 43, 53, 0.6);
 		background-image: url("/images/close.png");
-		-moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+		-moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.7);
 	}
 	
 	#form ul {

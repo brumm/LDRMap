@@ -12,10 +12,16 @@
 	</ul>
 </div>
 <div id="list">
+	<h2>Relationships</h2>
 	<ol>
 		<% @couples.each do |couple| %>
 			<li>
-				<%=h couple.name_1 %> & <%=h couple.name_2 %> (<%=h couple.distance %> miles)<br />
+				<span class="names"><%=h couple.name_1 %> & <%=h couple.name_2 %></span> 
+				<span class="distance">
+					<%=h number_with_delimiter(couple.distance, :locale => "en") %> mi / 
+					<%= number_with_delimiter((couple.distance * 1.609344).round(2), :delimiter => ".", :separator => ",") %> km
+				</span>
+				<br />
 			</li>
 		<% end %>
 	</ol>

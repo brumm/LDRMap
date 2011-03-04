@@ -14,12 +14,8 @@
 	}
 	
 	#list {
-		max-height: 150px;
-		overflow: auto;
-     	overflow-x: hidden;
-		bottom: -140px;
+		bottom: -165px;
 		right: 10px;
-		min-width: 400px;
 		position: fixed;
 		padding: 10px;
 		background: rgba(194, 203, 211, 0.85);
@@ -36,6 +32,10 @@
 		margin: 0;
 		padding: 0;
 		padding-left: 25px;
+		max-height: 150px;
+		overflow: auto;
+     	overflow-x: hidden;
+		min-width: 400px;
 		font: 14px "Helvetica", "Trebuchet MS", Verdana, sans-serif;
 		color: #262B35;
 		text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
@@ -93,7 +93,13 @@
 		font: 12px "Helvetica", "Trebuchet MS", Verdana, sans-serif;		
 	}
 
-	#form h1, #list h2 {
+	#list h2 {
+		cursor: pointer;
+		margin: 0;
+		padding-bottom: 10px;
+	}
+
+	#form h1 {
 		cursor: pointer;
 		margin: 0;
 		padding-bottom: 15px;

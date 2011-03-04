@@ -13,7 +13,7 @@ $(document).ready(function() {
 		$('#list').animate({"bottom" : "10px"}, { "duration" : "300", "easing" : "easeOutCubic"});
 	  },
 	  function () {
-		$('#list').animate({"bottom" : "-140px", scrollTop : 0}, { "duration" : "300", "easing" : "easeOutCubic"});
+		$('#list').animate({"bottom" : "-165px", scrollTop : 0}, { "duration" : "300", "easing" : "easeOutCubic"});
 	  }
 	);
 

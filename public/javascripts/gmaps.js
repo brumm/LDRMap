@@ -10,10 +10,15 @@ $(document).ready(function() {
 	  function () {
 		$('#form ul').fadeIn(900);
 		$('#form').animate({"height" : "180px", "width" : "400px"}, { "duration" : "300", "easing" : "easeOutCubic"});
+		$('#form h1').addClass("closeButton");
+		$('#form h1').animate({"margin-right" : "18px"}, { "duration" : "300", "easing" : "easeOutCubic"});
+		
 		$('#list').animate({"bottom" : "10px"}, { "duration" : "300", "easing" : "easeOutCubic"});
 	  },
 	  function () {
 		$('#form ul').hide();
+		$('#form h1').removeClass("closeButton");
+		$('#form h1').animate({"margin-right" : "0px"}, { "duration" : "300", "easing" : "easeOutCubic"});
 		$('#form').animate({"height" : "11px", "width" : "114px"}, { "duration" : "300", "easing" : "easeOutCubic"});
 		$('#list').animate({"bottom" : "-130px"}, { "duration" : "300", "easing" : "easeOutCubic"});
 	  }
@@ -64,7 +69,7 @@ function initialize2(relationships) {
 			strokeWeight: 4
 		});
 				
-		content = relationships[i].couple.name_1 + " & " + relationships[i].couple.name_2 + "<br />" + relationships[i].couple.distance + " miles";
+		content = relationships[i].couple.name_1 + " & " + relationships[i].couple.name_2 + "<br />" + relationships[i].couple.address_1 + " & " + relationships[i].couple.address_2 + "<br />" + relationships[i].couple.distance + " miles";
 			
 			highlightPoly(relationshipPath);
 			pantoPoly(relationshipPath, map, relationshipCoordinates[0], relationshipCoordinates[1], infowindow, content)

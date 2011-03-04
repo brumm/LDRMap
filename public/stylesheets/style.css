@@ -90,6 +90,22 @@
 		margin-bottom: 5px;
 	}
 	
+	.closeButton:after {
+		content: "";
+		-moz-border-radius: 100%;
+		display: inline-block;
+		position: absolute;
+		color: rgba(255, 255, 255, 0.5);
+		text-shadow: none;
+		right: 8px;
+		top:  8px;
+		width: 16px;
+		height: 16px;
+		background-color: rgba(0, 0, 0, 0.4);
+		background-image: url("/images/close.png");
+		-moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+	}
+	
 	#form ul {
 		display: none;
 	}

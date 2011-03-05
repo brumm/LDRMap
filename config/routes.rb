@@ -7,5 +7,4 @@ LDRMap::Application.routes.draw do
   get "couples/index"
 
   root :to => "site#index"
-
 end

@@ -1,13 +1,15 @@
+<%= javascript_include_tag :defaults %>
 
 <h1>Couples</h1>
 
-<ol>
+<ol class="plain">
 	<% @couples.each do |couple| %>
 		<li>
 			<%=h couple.name_1 %> & <%=h couple.name_2 %><br />
 			<%=h couple.address_1 %>: <%=h couple.lat_1 %>, <%=h couple.long_1 %><br /> 
 			<%=h couple.address_2 %>: <%=h couple.lat_2 %>, <%=h couple.long_2 %><br />
-			Distance: <%=h couple.distance %> miles<br /><br />
+			Distance: <%=h couple.distance %> miles<br />
+			ID: <%=h couple.id %><br />
 			<%= link_to 'Edit', edit_couple_path(couple) %>
 			<%= link_to 'Destroy', couple, :confirm => "Are you sure?", :method => :delete %>
 		</li>

@@ -2,14 +2,17 @@
 <ul>
 	<% form_for(@couple) do |f| %>
 		<li>
-			<%= @couple.name_1 %><br />
+			<%= f.text_field :name_1 %><br />
+			<%= f.text_field :address_1 %><br />
 			<%= f.text_field :lat_1 %><br />
 			<%= f.text_field :long_1 %><br />
 			<br />
-			<%= @couple.name_2 %><br />
+			<%= f.text_field :name_2 %><br />
+			<%= f.text_field :address_2 %><br />
 			<%= f.text_field :lat_2 %><br />
 			<%= f.text_field :long_2 %><br />
 		</li>
 		<%= f.submit 'Save' %>
+		<%= link_to 'Back', couples_path %>
 	<% end %>
 </ul>

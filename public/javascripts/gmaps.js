@@ -5,7 +5,6 @@ $(document).ready(function() {
 		
 	$("form").live("submit", function() {
 		$("input[type=submit]").attr('disabled', 'disabled');
-		console.log("should be disabled");
 	});
 	
 	$("#list h2").toggle(

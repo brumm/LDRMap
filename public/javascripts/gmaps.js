@@ -6,7 +6,6 @@ $(document).ready(function() {
 	$("form").live("submit", function() {
 		$("input[type=submit]").attr('disabled', 'disabled');
 	});
-	
 	$("#list h2").toggle(
 	  function () {
 		$('#list').animate({"bottom" : "10px"}, { "duration" : "300", "easing" : "easeOutCubic"});
@@ -59,7 +58,7 @@ function initialize2(relationships) {
 	
 	bounds.extend(location_1);
 	bounds.extend(location_2);
-	
+		
 	var list = $('#list ol');
 	var polys = [];
 	var content = [];
@@ -88,7 +87,7 @@ function initialize2(relationships) {
 		
 	};
 	map.fitBounds(bounds);
-	
+		
 	$('#list ol li').each(function(index) {
 		$(this).click(function() {
 			
@@ -104,6 +103,8 @@ function initialize2(relationships) {
         infowindow.close();
    });
 }
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 function pantoPolyList(poly, map, ltlng1, ltlng2, infowindow, content) {
 	var bounds = new google.maps.LatLngBounds();
